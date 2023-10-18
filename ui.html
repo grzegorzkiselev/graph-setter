@@ -1,0 +1,97 @@
+<style>
+  div {
+    font-family: "Arial Narrow", sans-serif;
+  }
+
+  fieldset,
+  details {
+    box-sizing: border-box;
+    margin: 12px 0;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  h2,
+  h3 {
+    display: inline;
+    padding: 0 6px;
+    margin: 0;
+  }
+
+  summary {
+    margin-bottom: 12px;
+  }
+
+  label,
+  input,
+  button,
+  span {
+    font-family: inherit;
+    display: inline-block;
+  }
+
+  label {
+    display: block;
+  }
+
+  label+label {
+    margin-top: 6px;
+  }
+
+  input,
+  span {
+    width: 50%;
+  }
+</style>
+
+<div>
+  <h2>Graph Setter</h2>
+  <a href="about">about</a>
+  <fieldset>
+    <legend>
+      <h3>Values</h3>
+    </legend>
+    <label><span>Line Values</span><input type="text" id="nValues"></label>
+    <label><span>Bars Values</span><input type="text" id="tValues"></label>
+  </fieldset>
+
+  <details>
+    <summary>
+      Settings
+    </summary>
+    <label><span>Height of the line</span><input type="number" id="lineChartHeight" value="100"></label>
+    <label><span>Value offset</span><input type="number" id="valueOffset" value="64"></label>
+    <label><span>Height of the bar</span><input type="number" id="barHeight" value="300"></label>
+    <label><span>Bar threshold</span><input type="number" id="barThreshold" value="51"></label>
+  </details>
+
+  <button type="submit" id="create">Create</button>
+  <button type="button" id="cancel">Cancel</button>
+</div>
+<script>
+  document.getElementById('create').onclick = () => {
+    const nValues = document.getElementById('nValues').value;
+    const tValues = document.getElementById('tValues').value;
+    const lineChartHeight = document.getElementById('lineChartHeight').value;
+    const valueOffset = document.getElementById('valueOffset').value;
+    const barHeight = document.getElementById('barHeight').value;
+    const barThreshold = document.getElementById('barThreshold').value;
+    // const nHeights = document.getElementById('nHeights').value;
+
+    parent.postMessage({
+      pluginMessage: {
+        type: 'create-rectangles',
+        nValues,
+        tValues,
+        lineChartHeight,
+        valueOffset,
+        barHeight,
+        barThreshold,
+      }
+    }, '*')
+  }
+
+  document.getElementById('cancel').onclick = () => {
+    parent.postMessage({ pluginMessage: { type: 'cancel' } }, '*')
+  }
+</script>
