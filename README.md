@@ -3,11 +3,11 @@
 "line-wrapper" - parent of the line chart vector
 
 "line-value-position" - wrapper for positioning values
-"line-value" - line chart values
+	"line-value" - line chart values
 
 "bar" - frame responsible for bar height
-"wrapper" - element for positioning the value label
-"bar-value" - bar chart values.
+	"wrapper" - element for positioning the value label
+		"bar-value" - bar chart values.
 
 ## Line chart calculation
 
