@@ -1,4 +1,4 @@
-Hard-coded layer names and their nesting:
+## Hard-coded layer names and their nesting:
 
 "line-wrapper" - parent of the line chart vector
 
@@ -9,7 +9,7 @@ Hard-coded layer names and their nesting:
 "wrapper" - element for positioning the value label
 "bar-value" - bar chart values.
 
-## Line chart
+## Line chart calculation
 
 Formula for calculating the Y point of the vector:
 
@@ -28,7 +28,7 @@ Formula for calculating the Y value:
 (result of previous formula) - (absolute offset value from the settings)
 ```
 
-## Bar chart
+## Bar chart calculation
 
 Formula for calculating bar height
 
